@@ -9,7 +9,7 @@ const App = () => {
     searchedCities: [],
     currentCity: null,
   });
-  const providerValue = useMemo(() => ({ local, setLocal }), [local, setLocal]);
+
   //initial load of prev search cities
   useEffect(() => {
     let prevSearches = JSON.parse(localStorage.getItem("weatherDashboard"));
@@ -63,7 +63,7 @@ const App = () => {
   // };
 
   return (
-    <WindowContext.Provider value={providerValue}>
+    <WindowContext.Provider value={{ local, setLocal }}>
       <NavBar />
       <DisplayBody />
     </WindowContext.Provider>
