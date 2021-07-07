@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/sxtnkyl/06-WeatherDashboard/static/css/main.bb6751e0.chunk.css",
+    "main.js": "/sxtnkyl/06-WeatherDashboard/static/js/main.0d7ecbc9.chunk.js",
+    "main.js.map": "/sxtnkyl/06-WeatherDashboard/static/js/main.0d7ecbc9.chunk.js.map",
+    "runtime-main.js": "/sxtnkyl/06-WeatherDashboard/static/js/runtime-main.271843fe.js",
+    "runtime-main.js.map": "/sxtnkyl/06-WeatherDashboard/static/js/runtime-main.271843fe.js.map",
+    "static/js/2.71dd3a7a.chunk.js": "/sxtnkyl/06-WeatherDashboard/static/js/2.71dd3a7a.chunk.js",
+    "static/js/2.71dd3a7a.chunk.js.map": "/sxtnkyl/06-WeatherDashboard/static/js/2.71dd3a7a.chunk.js.map",
+    "index.html": "/sxtnkyl/06-WeatherDashboard/index.html",
+    "static/css/main.bb6751e0.chunk.css.map": "/sxtnkyl/06-WeatherDashboard/static/css/main.bb6751e0.chunk.css.map",
+    "static/js/2.71dd3a7a.chunk.js.LICENSE.txt": "/sxtnkyl/06-WeatherDashboard/static/js/2.71dd3a7a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.271843fe.js",
+    "static/js/2.71dd3a7a.chunk.js",
+    "static/css/main.bb6751e0.chunk.css",
+    "static/js/main.0d7ecbc9.chunk.js"
+  ]
+}
