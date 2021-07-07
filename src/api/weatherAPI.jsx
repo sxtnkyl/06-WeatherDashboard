@@ -46,10 +46,11 @@ export const testFetch = () => {
   };
   return city;
 };
-//movie/latest does not support query string > used now_playing instead
-export const fetchCity = (city) => {
+
+//use to get lat/long
+export const fetchSingleDay = async (city) => {
   return axios({
-    url: `${process.env.WEATHER_BASE_DOMAIN}weather?q=${city}&appid=${process.env.WEATHER_API_KEY}`,
+    url: `https://${process.env.REACT_APP_WEATHER_BASE_DOMAIN}weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`,
     type: "GET",
   })
     .then((res) => {
@@ -61,9 +62,9 @@ export const fetchCity = (city) => {
     });
 };
 
-export const fetchUV = (lat, long) => {
+export const fetchOneCall = async (lat, long) => {
   return axios({
-    url: `${process.env.WEATHER_BASE_DOMAIN}onecall?lat=${lat}&lon=${long}&exclude=hourly,daily&appid=${process.env.WEATHER_API_KEY}`,
+    url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=imperial&exclude=minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API_KEY}`,
     type: "GET",
   })
     .then((res) => {

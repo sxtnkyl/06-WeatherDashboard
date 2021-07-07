@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useContext, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import NavBar from "../Navbar/index";
 import DisplayBody from "../DisplayBody";
 import { WindowContext } from "../../util/windowContext";
@@ -8,64 +8,32 @@ const App = () => {
   const [local, setLocal] = useState({
     searchedCities: [],
     currentCity: null,
+    currentCityData: null,
+    currentCityForecast: null,
   });
 
-  //initial load of prev search cities
+  //updated searched cities from localStorage on load
   useEffect(() => {
-    let prevSearches = JSON.parse(localStorage.getItem("weatherDashboard"));
-    function checkForLocal() {
-      if (prevSearches) {
-        setLocal(prevSearches);
-      } else {
-        localStorage.setItem(
-          "weatherDashboard",
-          JSON.stringify({
-            searchedCities: [],
-            currentCity: null,
-          })
-        );
-      }
-    }
-    checkForLocal();
-    console.log(local);
+    let prevSearched = JSON.parse(localStorage.getItem("prevCities"));
+    if (prevSearched !== null)
+      setLocal({
+        ...local,
+        searchedCities: [...prevSearched],
+      });
   }, []);
 
-  // const fetchLatest = () => {
-  //   setLoading(true);
-  //   fetchLatestMovies().then((res) => {
-  //     setLoading(false);
-  //     if (res.status !== 200) {
-  //       //TODO: add conditional retry
-  //       setError(`Error of status: ${res.status}`);
-  //     } else {
-  //       setMovies(res.data.results);
-  //     }
-  //   });
-  // };
+  //TODO: reduce rerenders when prev city is searched > updateCities in searchBar
+  useEffect(() => {
+    localStorage.setItem("prevCities", JSON.stringify(local.searchedCities));
+  }, [local.searchedCities]);
 
-  //onSearchBar update
-  // const onSearchBarChange = (str) => {
-  //   setLoading(true);
-  //   //make sure have query str to pass
-  //   if (str !== "") {
-  //     searchMovies(str).then((res) => {
-  //       setLoading(false);
-  //       if (res.status !== 200) {
-  //         //TODO: add conditional retry
-  //         setError(`Error of status: ${res.status}`);
-  //       } else {
-  //         setMovies(res.data.results);
-  //       }
-  //     });
-  //   } else {
-  //     fetchLatestMovies();
-  //   }
-  // };
+  //memoize ctx
+  const value = useMemo(() => ({ local, setLocal }), [local, setLocal]);
 
   return (
-    <WindowContext.Provider value={{ local, setLocal }}>
+    <WindowContext.Provider value={value}>
       <NavBar />
-      <DisplayBody />
+      {local.currentCity && <DisplayBody />}
     </WindowContext.Provider>
   );
 };

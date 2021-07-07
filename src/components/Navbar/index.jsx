@@ -1,14 +1,19 @@
 import React, { useContext } from "react";
 import "./index.css";
 import { WindowContext } from "../../util/windowContext";
+import SearchBar from "./searchBar";
 
 const Navbar = () => {
   const { local, setLocal } = useContext(WindowContext);
 
   return (
     <nav className="nav-container">
-      <span>WEATHER DASHBOARD</span>
-      <span>{local.currentCity === undefined && "missing"}</span>
+      <span>
+        {local.currentCityData == null
+          ? "fallback icon"
+          : local.currentCityData.name}
+      </span>
+      <SearchBar />
     </nav>
   );
 };
