@@ -1,12 +1,17 @@
 import SingleDay from "./singleDay/index";
 import Forecast from "./forecast/index";
+import * as S from "../..//styles/styles";
 
 const DisplayBody = () => {
   return (
-    <section className="display-body-container">
-      <SingleDay />
-      <Forecast />
-    </section>
+    <>
+      <S.SectionContainer className="display-body-container">
+        <SingleDay />
+      </S.SectionContainer>
+      <S.SectionContainer>
+        <Forecast />
+      </S.SectionContainer>
+    </>
   );
 };
 

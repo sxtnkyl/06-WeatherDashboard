@@ -1,18 +1,19 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { WindowContext } from "../../../util/windowContext";
 import DayCard from "./dayCard";
+import * as S from "../../../styles/styles";
 
 const Forecast = () => {
-  const { local, setLocal } = useContext(WindowContext);
+  const { local } = useContext(WindowContext);
 
   return (
-    <div style={{ border: "1px solid black" }}>
+    <S.ForecastContainer>
       {local.currentCityForecast
         ? local.currentCityForecast.map((day, i) => {
             return <DayCard data={day} key={i} />;
           })
         : "loading forecast data"}
-    </div>
+    </S.ForecastContainer>
   );
 };
 

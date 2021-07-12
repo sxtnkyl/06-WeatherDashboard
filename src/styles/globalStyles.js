@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
 *,
 *:before,
 *:after {
@@ -7,8 +10,9 @@
 }
 
 html {
-  height: 100%;
-  background-color: lightsteelblue;
+  background: linear-gradient(129.07deg, #ffd7b3ff 0%, #c7ffddff 100%);
+  background-size: cover;
+  min-height: 100vh;
 }
 
 body {
@@ -19,6 +23,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-overflow-scrolling: auto;
   margin: 0;
+}
+
+button, input {
+  padding: 10px;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+option {
+  background: red;
 }
 
 #root {
@@ -37,3 +53,6 @@ body {
     margin: 0px 4vw;
   }
 }
+`;
+
+export default GlobalStyle;

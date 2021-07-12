@@ -3,6 +3,8 @@ import { useState, useEffect, useMemo } from "react";
 import NavBar from "../Navbar/index";
 import DisplayBody from "../DisplayBody";
 import { WindowContext } from "../../util/windowContext";
+import { ThemeProvider } from "styled-components";
+import { theme } from "../../styles/styles";
 
 const App = () => {
   const [local, setLocal] = useState({
@@ -20,6 +22,7 @@ const App = () => {
         ...local,
         searchedCities: [...prevSearched],
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //TODO: reduce rerenders when prev city is searched > updateCities in searchBar
@@ -32,8 +35,10 @@ const App = () => {
 
   return (
     <WindowContext.Provider value={value}>
-      <NavBar />
-      {local.currentCity && <DisplayBody />}
+      <ThemeProvider theme={theme.light}>
+        <NavBar />
+        {local.currentCity && <DisplayBody />}
+      </ThemeProvider>
     </WindowContext.Provider>
   );
 };

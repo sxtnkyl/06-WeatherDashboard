@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { WindowContext } from "../../../util/windowContext";
 import { fetchSingleDay, fetchOneCall } from "../../../api/weatherAPI";
 import { makeForecastData } from "../../../util/helperFuncs";
+import * as S from "../../../styles/styles";
 
 const SearchBar = () => {
   //TODO: add lazy initial state for localStorage prev searched list
@@ -34,19 +35,16 @@ const SearchBar = () => {
 
   return (
     <div>
-      <input
+      <S.BaseInput
         type="text"
         onChange={(e) => setValue(e.target.value)}
         value={value}
         placeholder="Search for a City"
         list="hist"
       />
-      <datalist id="hist">
-        {local.searchedCities.map((city) => (
-          <option value={city}>{city}</option>
-        ))}
-      </datalist>
-      <button onClick={handleSubmit}>Search City</button>
+      <S.BaseButton onClick={value.length > 0 && handleSubmit}>
+        Search City
+      </S.BaseButton>
     </div>
   );
 };
