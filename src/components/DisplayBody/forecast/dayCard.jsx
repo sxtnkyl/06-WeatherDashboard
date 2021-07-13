@@ -10,11 +10,9 @@ const DayCard = ({ data }) => {
   return (
     <S.DayCard>
       <div>{date}</div>
-      <img
-        src={imgStr}
-        alt="weather icon"
-        style={{ border: `1px solid ${condition}` }}
-      />
+      <S.IconContainer width="auto" border={condition}>
+        <S.Icon src={imgStr} alt="weather icon" />
+      </S.IconContainer>
       <div>Hi: {maxTemp}°F</div>
       <div>Low: {minTemp}°F</div>
       <div>Wind Speed: {windSpd}mph</div>

@@ -59,7 +59,6 @@ const SectionContainer = styled.section`
 
 const FlexContainer = styled.div`
   display: flex;
-  flex: 0 0 100%;
   flex-wrap: wrap;
   justify-content: center;
 `;
@@ -72,11 +71,15 @@ const SingleDayContainer = styled.div`
 
 const SingleDayCard = styled(BaseCard)`
   height: 100%;
-  width: 100%;
+  width: auto;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  div {
+    padding: 5px;
+  }
 `;
 
 const ForecastContainer = styled(FlexContainer)`
@@ -90,6 +93,11 @@ const DayCard = styled(BaseCard)`
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 10px;
+  div {
+    padding: 5px;
+  }
 `;
 
 const IconContainer = styled(BaseCard)`
@@ -97,7 +105,7 @@ const IconContainer = styled(BaseCard)`
   align-items: center;
   height: ${(props) => props.height};
   width: ${(props) => props.width};
-  background: lightgray;
+  border: 1px solid ${(props) => props.border};
 `;
 
 //default theming example

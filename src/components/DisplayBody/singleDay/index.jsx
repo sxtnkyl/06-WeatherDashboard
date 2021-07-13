@@ -12,16 +12,18 @@ const SingleDay = () => {
   return (
     <S.SingleDayContainer>
       <S.SingleDayCard>
-        <div>{date}</div>
-        <img
-          src={imgStr}
-          alt="weather icon"
-          style={{ border: `1px solid ${condition}` }}
-        />
-        <div>Current Temp: {temp}°F</div>
-        <div>Wind Speed: {windSpd}mph</div>
-        <div>Humidity: {humidity}%</div>
-        <div>UV Index: {uv}</div>
+        <div>
+          <div>{date}</div>
+          <S.IconContainer width="auto" border={condition}>
+            <S.Icon src={imgStr} alt="weather icon" />
+          </S.IconContainer>
+        </div>
+        <div>
+          <div>Current Temp: {temp}°F</div>
+          <div>Wind Speed: {windSpd}mph</div>
+          <div>Humidity: {humidity}%</div>
+          <div>UV Index: {uv}</div>
+        </div>
       </S.SingleDayCard>
     </S.SingleDayContainer>
   );

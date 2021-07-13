@@ -34,7 +34,7 @@ const Navbar = () => {
   };
 
   const Searched = local.searchedCities.length ? (
-    <S.FlexContainer>
+    <S.FlexContainer style={{ flex: "0 0 100%" }}>
       {local.searchedCities.map((city) => (
         <S.BaseButton
           key={city}
